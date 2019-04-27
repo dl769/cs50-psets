@@ -21,7 +21,7 @@ int main()
    if(returnedValue==1) printf("AMEX\n");
    if(returnedValue==2) printf("MASTERCARD\n");
    if(returnedValue==3) printf("VISA\n");
-   if(returnedValue==0||9) printf("INVALID\n");
+   if(returnedValue==0||returnedvalue==9) printf("INVALID\n");
 
 
    return 0;
