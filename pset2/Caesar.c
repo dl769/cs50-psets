@@ -36,8 +36,9 @@ int main(int argc, char* argv[])
 
     for (int i=0; i<n-1; i++){
 
-        int characterToPrint=0; //has to be int otherwise lower case letters may cause problems cause they'll beyond ASCII range
-
+        int characterToPrint=0; 
+        //has to be int otherwise lower case letters may cause problems cause they'll eventually go beyond ASCII range
+        
         if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z')){
 
             if (text[i] >= 'A' && text[i] <= 'Z'){
