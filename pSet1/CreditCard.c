@@ -12,7 +12,8 @@ int main()
    
 unsigned long long cardNumber=0;
 
-   do{
+   do
+   {
 
    fflush(stdin);
    printf("Number: ");
@@ -34,9 +35,11 @@ int returnedValue=checkProvider(cardNumber);
    return 0;
 }
 
-int checkProvider(unsigned long long x){
+int checkProvider(unsigned long long x)
+   {
 
-    if((x>340000000000000 && x<350000000000000) || (x>370000000000000 && x<380000000000000)){//America Express
+    if((x>340000000000000 && x<350000000000000) || (x>370000000000000 && x<380000000000000))
+    {//America Express
 
         if(validateCard(7,8,x,1) == 1) return 1;
 
@@ -44,7 +47,8 @@ int checkProvider(unsigned long long x){
 
     }
 
-    if(x>5100000000000000 && x<5600000000000000){ //Master Card
+    if(x>5100000000000000 && x<5600000000000000)
+    { //Master Card
 
         if(validateCard(8,8,x,0) == 1) return 2;
 
@@ -52,7 +56,8 @@ int checkProvider(unsigned long long x){
 
     }
 
-    if(x>4000000000000000 && x<5000000000000000){//visa16
+    if(x>4000000000000000 && x<5000000000000000)
+    {//visa16
 
         if(validateCard(8,8,x,0)==1) return 3;
 
@@ -60,7 +65,8 @@ int checkProvider(unsigned long long x){
 
     }
 
-    if((x>4000000000000 && x<5000000000000)){//visa13
+    if((x>4000000000000 && x<5000000000000))
+    {//visa13
 
         if(validateCard(8,8,x,1)==1) return 3;
 
@@ -73,7 +79,8 @@ int checkProvider(unsigned long long x){
 }
 
 
-int validateCard(int z, int y, unsigned long long number,int even){
+int validateCard(int z, int y, unsigned long long number,int even)
+{
 
 int values[z]; int values2[y];
 
@@ -81,11 +88,14 @@ int i=z+y;
 
 int d=0, e=0;
 
-    if(even==0){  //if number of digits on credit card isn't even it stores odd values in one array while even are stored in second.
+    if(even==0)
+    {  //if number of digits on credit card isn't even it stores odd values in one array while even are stored in second.
 
-        while (number > 0) {
+        while (number > 0)
+        {
 
-            if(i%2!=0){
+            if(i%2!=0)
+            {
 
                 values[d]=number%10;
 
@@ -93,7 +103,8 @@ int d=0, e=0;
 
             }
 
-            if(i%2==0) {
+            if(i%2==0) 
+            {
 
                 values2[e]=number%10;
 
@@ -109,7 +120,8 @@ int d=0, e=0;
 
     }
 
-    if(even==1){
+    if(even==1)
+    {
 
         while (number > 0) {
 
@@ -139,9 +151,11 @@ int d=0, e=0;
 
 int controlValue1=0,controlValue2=0,controlValue=0;
 
-    for(int i=0;i<z;i++){
+    for(int i=0;i<z;i++)
+    {
 
-        if(values[i]>4){
+        if(values[i]>4)
+        {
 
             values[i]=values[i]*2-9;
 
@@ -154,7 +168,8 @@ int controlValue1=0,controlValue2=0,controlValue=0;
     }
 
 
-    for(int i=0;i<y;i++){
+    for(int i=0;i<y;i++)
+    {
 
         controlValue2=controlValue2+values2[i];
 
@@ -162,7 +177,8 @@ int controlValue1=0,controlValue2=0,controlValue=0;
 
 controlValue=controlValue1+controlValue2;
 
-    if(controlValue%10==0){
+    if(controlValue%10==0)
+    {
 
         return 1; //true;
 
